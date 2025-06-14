@@ -9,7 +9,7 @@ void main()
 	
 	while(i <= end)
 	{
-		sum += i;
+		sum = sum + i;
 		i++;
 	}
 	
