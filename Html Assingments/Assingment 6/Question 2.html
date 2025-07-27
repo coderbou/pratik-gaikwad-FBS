@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+<body>
+
+        <h1>FirstBit Solutions</h1>
+
+        <img src="https://i.postimg.cc/9FLzZYBS/logo.jpg" alt="FirstBit Logo" width="200"><br>
+
+        <a href="https://firstbitsolutions.com" target="_blank">FirstBitSolutions.com</a><br>
+        <i>Your Future Begins Here!</i>
+
+        <hr>
+
+        
+        <h2><u>Student Registration Form</u></h2>
+
+    
+    <form action="submit_form.html" method="POST">
+
+       
+        <label><b>Full Name:</b></label><br>
+        <input type="text" name="fullname" placeholder="Enter your full name" required><br><br>
+
+        
+        <label><b>Email ID:</b></label><br>
+        <input type="email" name="email" placeholder="example@email.com" required><br><br>
+
+        
+        <label><b>Phone Number:</b></label><br>
+        <input type="tel" name="phone" placeholder="e.g. 9876543210" maxlength="10" required><br><br>
+
+       
+        <label><b>Birth Date:</b></label><br>
+        <input type="date" name="birthdate" required><br><br>
+
+        <label><b>Select Gender:</b></label><br>
+        <input type="radio" name="gender" value="Male"> Male<br>
+        <input type="radio" name="gender" value="Female"> Female<br>
+        <input type="radio" name="gender" value="Other"> Other<br><br>
+
+        
+        <label><b>Courses Interested In:</b></label><br>
+        <input type="checkbox" name="course" value="Java Full Stack"> Java Full Stack<br>
+        <input type="checkbox" name="course" value="Python Full Stack"> Python Full Stack<br>
+        <input type="checkbox" name="course" value="React JS"> React JS<br>
+        <input type="checkbox" name="course" value="Data Science"> Data Science<br><br>
+
+        
+        <label><b>Preferred Batch Time:</b></label><br>
+        <select name="batch_time" required>
+            <option value="">-- Select --</option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+        </select><br><br>
+
+        
+        <label><b>Write About Yourself:</b></label><br>
+        <textarea name="about" rows="4" cols="50" placeholder="Tell us about yourself..."></textarea><br><br>
+
+       
+        <label><b>Rate Your Current Skill Level (1-10):</b></label><br>
+        <input type="number" name="skill" min="1" max="10" step="1"><br><br>
+
+      
+        <input type="submit" value="Submit Form">
+        <input type="reset" value="Reset Form"><br><br>
+
+    </form>
+
+    <p>
+        <b>Address:</b> Aditya Centeegra, Office No. 7, 3rd Floor, Near IDBI Bank,<br>
+                        Dnyaneshwar Paduka Chowk, Pune, Maharashtra 411005
+    </p>
+
+</body>
+</html>
