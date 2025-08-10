@@ -1,0 +1,146 @@
+Hotel management
+
+mysql> create database hotelmanagement;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> use hotelmanagement;
+Database changed
+
+mysql> create table customer(
+    -> customerId int primary key,
+    -> fullName varchar (30),
+    -> email varchar (30) unique,
+    -> pho_num varchar (12) unique,
+    -> password varchar (20),
+    -> address varchar (50),
+    -> date_of_regi date not null);
+Query OK, 0 rows affected (0.06 sec)
+
+
+mysql> desc customer;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| customerId   | int         | NO   | PRI | NULL    |       |
+| fullName     | varchar(30) | YES  |     | NULL    |       |
+| email        | varchar(30) | YES  | UNI | NULL    |       |
+| pho_num      | varchar(12) | YES  | UNI | NULL    |       |
+| password     | varchar(20) | YES  |     | NULL    |       |
+| address      | varchar(50) | YES  |     | NULL    |       |
+| date_of_regi | date        | NO   |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> create table room(
+    -> roomId int primary key,
+    -> roomNum int,
+    -> roomtype varchar (20),
+    -> rent_per_day int,
+    -> isAvailable varchar (10));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc room;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| roomId       | int         | NO   | PRI | NULL    |       |
+| roomNum      | int         | YES  |     | NULL    |       |
+| roomtype     | varchar(20) | YES  |     | NULL    |       |
+| rent_per_day | int         | YES  |     | NULL    |       |
+| isAvailable  | varchar(10) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create table booking (
+    -> bookingId int primary key,
+    -> bookingDate date,
+    -> checkInDate date,
+    -> checkOutDate date,
+    -> totalRoomRent decimal (7,2));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc booking;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| bookingId     | int          | NO   | PRI | NULL    |       |
+| bookingDate   | date         | YES  |     | NULL    |       |
+| checkInDate   | date         | YES  |     | NULL    |       |
+| checkOutDate  | date         | YES  |     | NULL    |       |
+| totalRoomRent | decimal(7,2) | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> create table foodOrder(
+    -> orderId int primary key,
+    -> orderDate date,
+    -> menuItems varchar (50));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc foodOrder;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| orderId   | int         | NO   | PRI | NULL    |       |
+| orderDate | date        | YES  |     | NULL    |       |
+| menuItems | varchar(50) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> create table laundryService(
+    -> laundryServiceId int primary key,
+    -> dateOfService date,
+    -> numberOfClothes int,
+    -> totalLaundryCharge int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> table laundryService;
+Empty set (0.01 sec)
+
+mysql> desc laundryService;
++--------------------+------+------+-----+---------+-------+
+| Field              | Type | Null | Key | Default | Extra |
++--------------------+------+------+-----+---------+-------+
+| laundryServiceId   | int  | NO   | PRI | NULL    |       |
+| dateOfService      | date | YES  |     | NULL    |       |
+| numberOfClothes    | int  | YES  |     | NULL    |       |
+| totalLaundryCharge | int  | YES  |     | NULL    |       |
++--------------------+------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> create table siteVisit (
+    -> visitId int primary key,
+    -> vehicleType varchar (20),
+    -> noOfDays int,
+    -> perDayCharge int,
+    -> totalVisitCharge int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc siteVisit;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| visitId          | int         | NO   | PRI | NULL    |       |
+| vehicleType      | varchar(20) | YES  |     | NULL    |       |
+| noOfDays         | int         | YES  |     | NULL    |       |
+| perDayCharge     | int         | YES  |     | NULL    |       |
+| totalVisitCharge | int         | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create table invoice (
+    -> invoiceId int primary key,
+    -> totalAmount int,
+    -> invoiceDate date);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc invoice;
++-------------+------+------+-----+---------+-------+
+| Field       | Type | Null | Key | Default | Extra |
++-------------+------+------+-----+---------+-------+
+| invoiceId   | int  | NO   | PRI | NULL    |       |
+| totalAmount | int  | YES  |     | NULL    |       |
+| invoiceDate | date | YES  |     | NULL    |       |
++-------------+------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
