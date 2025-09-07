@@ -1,0 +1,271 @@
+Q.1
+	select f_name as "First Name",
+       -> l_name as "Last Name"
+       -> from employee;
+	+------------+------------+
+	| First Name | Last Name  |
+	+------------+------------+
+	| Steven     | King       |
+	| Neena      | Kochhar    |
+	| Lex        | DE Haan    |
+	| Alexander  | Hunold     |
+	| Brucce     | Ernst      |
+	| David      | Austin     |
+	| Valli      | Pataballa  |
+	| Diana      | Lorentz    |
+	| Nancy      | Greenberge |
+	| Daniel     | Faviet     |
+	+------------+------------+
+
+Q.2
+	select distinct dept_id from employee;
+	+---------+
+	| dept_id |
+	+---------+
+	|      10 |
+	|      30 |
+	|      60 |
+	|      80 |
+	+---------+
+
+Q.3 
+
+	select * from employee
+       -> order by f_name desc;
+	+--------+-----------+------------+---------------+--------------+------------+---------+----------+--------------+------------+---------+
+	| emp_id | f_name    | l_name     | email         | phone_no     | hire_date  | job_id  | salary   | commission_p | manager_id | dept_id |
+	+--------+-----------+------------+---------------+--------------+------------+---------+----------+--------------+------------+---------+
+	|    106 | Valli     | Pataballa  | not available | 590.423.4560 | 1987-06-23 | IT_PROG |  5280.00 |         0.10 |        103 |      60 |
+	|    100 | Steven    | King       | not available | 512.123.4567 | 1987-06-17 | AD_PRES | 26400.00 |         0.10 |        200 |      10 |	
+	|    101 | Neena     | Kochhar    | not available | 512.123.4568 | 1987-06-18 | AD_VP   | 18700.00 |         0.10 |        200 |      10 |
+	|    108 | Nancy     | Greenberge | not available | 515.124.4569 | 1987-06-25 | SA_MAN  | 13200.00 |         0.10 |        145 |      80 |
+	|    102 | Lex       | DE Haan    | not available | 512.123.4569 | 1987-06-19 | AD_VP   | 18700.00 |         0.10 |        200 |      10 |
+	|    107 | Diana     | Lorentz    | not available | 590.423.5567 | 1987-06-24 | IT_PROG |  4620.00 |         0.10 |        114 |      30 |
+	|    105 | David     | Austin     | not available | 590.423.4569 | 1987-06-22 | IT_PROG |  5280.00 |         0.10 |        103 |      60 |
+	|    109 | Daniel    | Faviet     | not available | 515.124.4169 | 1987-06-26 | SA_MAN  |  9900.00 |         0.10 |        145 |      80 |
+	|    104 | Brucce    | Ernst      | not available | 590.423.4568 | 1987-06-21 | IT_PROG |  6600.00 |         0.10 |        103 |      60 |
+	|    103 | Alexander | Hunold     | not available | 590.423.4567 | 1987-06-20 | IT_PROG |  9900.00 |         0.10 |        103 |      60 |
+	+--------+-----------+------------+---------------+--------------+------------+---------+----------+--------------+------------+---------+
+
+Q.4
+
+
+	select f_name,l_name,salary ,salary *0.15 as "PF"
+       -> from employee;
+	+-----------+------------+----------+-----------+
+	| f_name    | l_name     | salary   | PF        |
+	+-----------+------------+----------+-----------+
+	| Steven    | King       | 26400.00 | 3960.0000 |
+	| Neena     | Kochhar    | 18700.00 | 2805.0000 |
+	| Lex       | DE Haan    | 18700.00 | 2805.0000 |
+	| Alexander | Hunold     |  9900.00 | 1485.0000 |
+	| Brucce    | Ernst      |  6600.00 |  990.0000 |
+	| David     | Austin     |  5280.00 |  792.0000 |
+	| Valli     | Pataballa  |  5280.00 |  792.0000 |
+	| Diana     | Lorentz    |  4620.00 |  693.0000 |
+	| Nancy     | Greenberge | 13200.00 | 1980.0000 |
+	| Daniel    | Faviet     |  9900.00 | 1485.0000 |
+	+-----------+------------+----------+-----------+
+
+Q.5
+
+
+	select emp_id,f_name,l_name,salary from employee
+       -> order by salary asc;
+	+--------+-----------+------------+----------+
+	| emp_id | f_name    | l_name     | salary   |
+	+--------+-----------+------------+----------+
+	|    107 | Diana     | Lorentz    |  4620.00 |
+	|    105 | David     | Austin     |  5280.00 |
+	|    106 | Valli     | Pataballa  |  5280.00 |
+	|    104 | Brucce    | Ernst      |  6600.00 |
+	|    103 | Alexander | Hunold     |  9900.00 |
+	|    109 | Daniel    | Faviet     |  9900.00 |
+	|    108 | Nancy     | Greenberge | 13200.00 |
+	|    101 | Neena     | Kochhar    | 18700.00 |
+	|    102 | Lex       | DE Haan    | 18700.00 |
+	|    100 | Steven    | King       | 26400.00 |
+	+--------+-----------+------------+----------+
+
+Q.6
+
+	select sum(salary) as total_sal from employee;
+	+-----------+
+	| total_sal |
+	+-----------+
+	| 118580.00 |
+	+-----------+
+
+Q.7
+
+	select max(salary) as "max_sal",min(salary) as "min_sal"  from employee;
+	+----------+---------+
+	| max_sal  | min_sal |
+	+----------+---------+
+	| 26400.00 | 4620.00 |
+	+----------+---------+
+
+Q.8
+
+	select avg(salary) as "Average_sal" ,count(emp_id) as "Total_count" from employee;
+	+--------------+-------------+
+	| Average_sal  | Total_count |
+	+--------------+-------------+	
+	| 11858.000000 |          10 |
+	+--------------+-------------+
+
+Q.9
+
+	select count(emp_id) as "total_count" from employee;
+	+-------------+
+	| total_count |
+	+-------------+
+	|          10 |
+	+-------------+
+
+Q.10
+
+	select  count( distinct job_id) as "Total_job" from employee ;
+	+-----------+
+	| Total_job |
+	+-----------+
+	|         4 |
+	+-----------+
+
+Q.11
+
+	select * from employee limit 10;
+	+--------+-----------+------------+---------------+--------------+------------+---------+----------+--------------+------------+---------+
+	| emp_id | f_name    | l_name     | email         | phone_no     | hire_date  | job_id  | salary   | commission_p | manager_id | dept_id |
+	+--------+-----------+------------+---------------+--------------+------------+---------+----------+--------------+------------+---------+
+	|    100 | Steven    | King       | not available | 512.123.4567 | 1987-06-17 | AD_PRES | 26400.00 |         0.10 |        200 |      10 |
+	|    101 | Neena     | Kochhar    | not available | 512.123.4568 | 1987-06-18 | AD_VP   | 18700.00 |         0.10 |        200 |      10 |
+	|    102 | Lex       | DE Haan    | not available | 512.123.4569 | 1987-06-19 | AD_VP   | 18700.00 |         0.10 |        200 |      10 |
+	|    103 | Alexander | Hunold     | not available | 590.423.4567 | 1987-06-20 | IT_PROG |  9900.00 |         0.10 |        103 |      60 |
+	|    104 | Brucce    | Ernst      | not available | 590.423.4568 | 1987-06-21 | IT_PROG |  6600.00 |         0.10 |        103 |      60 |
+	|    105 | David     | Austin     | not available | 590.423.4569 | 1987-06-22 | IT_PROG |  5280.00 |         0.10 |        103 |      60 |
+	|    106 | Valli     | Pataballa  | not available | 590.423.4560 | 1987-06-23 | IT_PROG |  5280.00 |         0.10 |        103 |      60 |	
+	|    107 | Diana     | Lorentz    | not available | 590.423.5567 | 1987-06-24 | IT_PROG |  4620.00 |         0.10 |        114 |      30 |
+	|    108 | Nancy     | Greenberge | not available | 515.124.4569 | 1987-06-25 | SA_MAN  | 13200.00 |         0.10 |        145 |      80 |
+	|    109 | Daniel    | Faviet     | not available | 515.124.4169 | 1987-06-26 | SA_MAN  |  9900.00 |         0.10 |        145 |      80 |
+	+--------+-----------+------------+---------------+--------------+------------+---------+----------+--------------+------------+---------+
+
+Q.12
+
+	select f_name,l_name,salary from employee where salary not between 10000 and 15000;
+	+-----------+-----------+----------+
+	| f_name    | l_name    | salary   |
+	+-----------+-----------+----------+
+	| Steven    | King      | 26400.00 |
+	| Neena     | Kochhar   | 18700.00 |
+	| Lex       | DE Haan   | 18700.00 |
+	| Alexander | Hunold    |  9900.00 |
+	| Brucce    | Ernst     |  6600.00 |
+	| David     | Austin    |  5280.00 |
+	| Valli     | Pataballa |  5280.00 |
+	| Diana     | Lorentz   |  4620.00 |
+	| Daniel    | Faviet    |  9900.00 |
+	+-----------+-----------+----------+
+
+Q.13
+
+	 select f_name,l_name,dept_id from employee where dept_id in(30,100) order by dept_id asc;
+	+--------+---------+---------+
+	| f_name | l_name  | dept_id |
+	+--------+---------+---------+
+	| Diana  | Lorentz |      30 |
+	+--------+---------+---------+
+
+Q.14
+
+	select f_name,l_name,salary,dept_id from employee where salary not between 10000 and 15000 and dept_id in(30,100) order by dept_id asc;
+	+--------+---------+---------+---------+
+	| f_name | l_name  | salary  | dept_id |
+	+--------+---------+---------+---------+
+	| Diana  | Lorentz | 4620.00 |      30 |
+	+--------+---------+---------+---------+
+
+Q.15
+
+	select f_name,l_name,hire_date from employee where year(hire_date)=1987;
+	+-----------+------------+------------+
+	| f_name    | l_name     | hire_date  |
+	+-----------+------------+------------+
+	| Steven    | King       | 1987-06-17 |
+	| Neena     | Kochhar    | 1987-06-18 |
+	| Lex       | DE Haan    | 1987-06-19 |
+	| Alexander | Hunold     | 1987-06-20 |
+	| Brucce    | Ernst      | 1987-06-21 |
+	| David     | Austin     | 1987-06-22 |
+	| Valli     | Pataballa  | 1987-06-23 |
+	| Diana     | Lorentz    | 1987-06-24 |
+	| Nancy     | Greenberge | 1987-06-25 |
+	| Daniel    | Faviet     | 1987-06-26 |
+	+-----------+------------+------------+
+Q.16
+
+	select f_name from employee where f_name like '%b%' and f_name like'%c%';
+	+--------+
+	| f_name |
+	+--------+
+	| Brucce |
+	+--------+
+
+
+Q.17
+
+	
+	 select l_name,job_id ,salary from employee
+    	-> where job_id in('IT_PROG','SH_CLERK')
+        -> and salary not in(4500,10000,15000);
+	+-----------+---------+---------+
+	| l_name    | job_id  | salary  |
+	+-----------+---------+---------+
+	| Hunold    | IT_PROG | 9900.00 |
+	| Ernst     | IT_PROG | 6600.00 |
+	| Austin    | IT_PROG | 5280.00 |
+	| Pataballa | IT_PROG | 5280.00 |
+	| Lorentz   | IT_PROG | 4620.00 |
+	+-----------+---------+---------+
+
+Q.18
+
+ 	select l_name from employee where length(l_name)=6;
+	+--------+
+	| l_name |
+	+--------+
+	| Hunold |
+	| Austin |
+	| Faviet |
+	+--------+
+
+Q.19
+
+	select l_name from employee where l_name like '__e%' ;
+	+------------+
+	| l_name     |
+	+------------+
+	| Greenberge |
+	+------------+
+
+Q.20
+
+	select distinct job_id from employee;
+	+---------+
+	| job_id  |
+	+---------+
+	| AD_PRES |
+	| AD_VP   |
+	| IT_PROG |
+	| SA_MAN  |
+	+---------+
+
+Q.21
+
+
+	select * from employee where l_name in('blake','scott','king','ford');
+	+--------+--------+--------+---------------+--------------+------------+---------+----------+--------------+------------+---------+
+	| emp_id | f_name | l_name | email         | phone_no     | hire_date  | job_id  | salary   | commission_p | manager_id | dept_id |
+	+--------+--------+--------+---------------+--------------+------------+---------+----------+--------------+------------+---------+
+	|    100 | Steven | King   | not available | 512.123.4567 | 1987-06-17 | AD_PRES | 26400.00 |         0.10 |        200 |      10 |
+	+--------+--------+--------+---------------+--------------+------------+---------+----------+--------------+------------+---------+
